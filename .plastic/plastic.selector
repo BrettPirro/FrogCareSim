@@ -1,0 +1,4 @@
+repository "FrogCareSim@local"
+  path "/"
+    br "/main"
+    co "/main"

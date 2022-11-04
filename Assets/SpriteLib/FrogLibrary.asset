@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: FrogLibrary
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Head
+    m_Hash: 130111906
+    m_CategoryList:
+    - m_Name: Head1
+      m_Hash: -1157370838
+      m_Sprite: {fileID: -4703897055404791439, guid: 694ad94c9d9ed0146ab11bae74292278,
+        type: 3}
+    - m_Name: Head2
+      m_Hash: 571129232
+      m_Sprite: {fileID: 2603439823562377782, guid: 2e2b3e5f776e0ad47977906907372e53,
+        type: 3}
+    - m_Name: Head3
+      m_Hash: 1426951430
+      m_Sprite: {fileID: 1423373046385822098, guid: c621a7aefb4ce334d9f0d047cebd327f,
+        type: 3}
+    - m_Name: Head4
+      m_Hash: -882304859
+      m_Sprite: {fileID: 6656131665296053284, guid: 9aebb20451def5640b21f03a46ec5350,
+        type: 3}
+    - m_Name: Head5
+      m_Hash: -1133631437
+      m_Sprite: {fileID: 3460560271183861001, guid: 977f46b87ddb451488b026a54d7ea2eb,
+        type: 3}
