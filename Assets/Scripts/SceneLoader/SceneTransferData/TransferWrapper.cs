@@ -5,55 +5,58 @@ using System.Linq;
 using UnityEngine;
 
 
-public class TransferWrapper : MonoBehaviour
+namespace Frog.SceneManagement 
 {
-    [SerializeField] string id;
-
-    string GlobalId => id;
-
-    [ContextMenu("GenId")]
-    void GenerateID() 
+    public class TransferWrapper : MonoBehaviour
     {
-        id = Guid.NewGuid().ToString();
-    }
+        [SerializeField] string id;
 
+        string GlobalId => id;
 
-
-    public Dictionary<string,object> TransferDataToGlobal() 
-    {
-        var Data = new Dictionary<string, object>();
-
-        foreach (var TransObj in GetComponents<ITransfer>()) 
+        [ContextMenu("GenId")]
+        void GenerateID()
         {
-            Data.Add(GlobalId + '~' + TransObj.GetType(), TransObj.SaveData());
-
+            id = Guid.NewGuid().ToString();
         }
 
 
 
-        return Data;
-    }
-
-    public static Dictionary<string, object> GrabAllTransWrapValues() 
-    {
-        var Data = new Dictionary<string, object>();
-
-        foreach (var Wrapper in FindObjectsOfType<TransferWrapper>()) 
+        public Dictionary<string, object> TransferDataToGlobal()
         {
-            Wrapper.TransferDataToGlobal().ToList().ForEach(x=>Data.Add(x.Key,x.Value));
+            var Data = new Dictionary<string, object>();
+
+            foreach (var TransObj in GetComponents<ITransfer>())
+            {
+                Data.Add(GlobalId + '~' + TransObj.GetType(), TransObj.SaveData());
+
+            }
+
+
+
+            return Data;
         }
 
-        return Data;
+        public static Dictionary<string, object> GrabAllTransWrapValues()
+        {
+            var Data = new Dictionary<string, object>();
+
+            foreach (var Wrapper in FindObjectsOfType<TransferWrapper>())
+            {
+                Wrapper.TransferDataToGlobal().ToList().ForEach(x => Data.Add(x.Key, x.Value));
+            }
+
+            return Data;
+        }
+
+
+
+
+
+
+
+
+
     }
-
-
-   
-
-
-
-
-
 
 }
-
 

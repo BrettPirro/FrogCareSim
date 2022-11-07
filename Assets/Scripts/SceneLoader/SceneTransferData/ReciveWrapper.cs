@@ -2,38 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReciveWrapper : MonoBehaviour
+namespace Frog.SceneManagement 
 {
-    
-
-    public Dictionary<string, object> GrabDictFromCentralTrans() 
+    public class ReciveWrapper : MonoBehaviour
     {
-        return CentralTransObj.centralTrans.SendDataSet();
-    }
 
-    public void LoadDataSetToObj()
-    {
-        List<string> Vals = new List<string>();
 
-        foreach (var item in GetComponents<IRecive>()) 
+        public Dictionary<string, object> GrabDictFromCentralTrans()
         {
-          
+            return CentralTransObj.centralTrans.SendDataSet();
+        }
 
-            if (GrabDictFromCentralTrans().ContainsKey(item.GrabId())) 
+        public void LoadDataSetToObj()
+        {
+            List<string> Vals = new List<string>();
+
+            foreach (var item in GetComponents<IRecive>())
             {
-                Debug.Log("obj found");
-                item.Load(GrabDictFromCentralTrans()[item.GrabId()]);
-                Vals.Add(item.GrabId());
+
+
+                if (GrabDictFromCentralTrans().ContainsKey(item.GrabId()))
+                {
+                    Debug.Log("obj found");
+                    item.Load(GrabDictFromCentralTrans()[item.GrabId()]);
+                    Vals.Add(item.GrabId());
+                }
+
             }
-           
+
+
+            CentralTransObj.centralTrans.RemoveDataSet(Vals);
         }
 
 
-        CentralTransObj.centralTrans.RemoveDataSet(Vals);
+
+
+
     }
-
-
-
-
-
 }
