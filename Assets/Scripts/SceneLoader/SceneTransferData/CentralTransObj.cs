@@ -8,13 +8,30 @@ namespace Frog.SceneManagement
     {
         Dictionary<string, object> TransferableData = new Dictionary<string, object>();
 
-        public static CentralTransObj centralTrans;
+        static public CentralTransObj centralTrans;
+
+
 
         private void Awake()
         {
             centralTrans = this;
+
+            if (SceneManage.sceneManage != null) 
+            {
+                SceneManage.sceneManage.DataSavePer += SaveDataToTransSet;
+                SceneManage.sceneManage.DataLoadPer += LoadDataSet;
+            }
+
         }
 
+        private void OnDisable()
+        {
+            if (SceneManage.sceneManage != null)
+            {
+                SceneManage.sceneManage.DataSavePer -= SaveDataToTransSet;
+                SceneManage.sceneManage.DataLoadPer -= LoadDataSet;
+            }
+        }
 
 
         public void SaveDataToTransSet()

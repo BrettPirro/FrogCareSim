@@ -2,12 +2,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Frog.SaveManagment;
+using System;
 
 namespace Frog.SceneManagement 
 {
     public class SceneManage : MonoBehaviour
     {
         public static SceneManage sceneManage;
+
+        public Action DataSavePer;
+        public Action DataLoadPer;
 
         private void Awake()
         {
@@ -45,14 +49,14 @@ namespace Frog.SceneManagement
 
         IEnumerator LoadNextSceneWithString(string item)
         {
-            CentralTransObj.centralTrans.SaveDataToTransSet();//test run Line. use observer pattern with save system when done
+            DataSavePer();
             SaveAndLoadSystem.saveSystem.Save();
             yield return Fader.fader.FadeIn(0.5f);
             yield return SceneManager.LoadSceneAsync(item);
             SaveAndLoadSystem.saveSystem.Load();
            
             yield return Fader.fader.FadeOut(0.5f);
-            CentralTransObj.centralTrans.LoadDataSet();
+            DataLoadPer();
 
 
         }
