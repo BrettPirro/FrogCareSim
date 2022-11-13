@@ -22,6 +22,16 @@ namespace Frog.ValMangment
 
         private void Start()
         {
+            if (AdManager.current!=null)
+            {
+                Debug.Log("added");
+                AdManager.current.RewardFlys += AddFlys;
+                AdManager.current.RewardWater += AddWater;
+                AdManager.current.RewardMoney += AddMoney;
+            }
+
+
+
             if (UIStatUpdate.current != null)
             {
                 UIStatUpdate.current.UpdateMoneyNum += ReturnMoney;  
@@ -41,6 +51,7 @@ namespace Frog.ValMangment
                 TriggerEatResource.current.IsInventoryZero += CheckIfValIsZero;
             }
 
+           
 
         }
 
@@ -57,6 +68,16 @@ namespace Frog.ValMangment
         public void AddFlys(int add)
         {
             flys += add;
+        }
+
+        public void AddWater(int add) 
+        {
+            water += add;
+        }
+
+        public void AddMoney(int add) 
+        {
+            Coins += add;
         }
 
 
