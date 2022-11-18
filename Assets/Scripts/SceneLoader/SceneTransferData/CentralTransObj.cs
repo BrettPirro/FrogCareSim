@@ -16,13 +16,21 @@ namespace Frog.SceneManagement
         {
             centralTrans = this;
 
-            if (SceneManage.sceneManage != null) 
+           
+
+        }
+
+        private void Start()
+        {
+            if (SceneManage.sceneManage != null)
             {
+
                 SceneManage.sceneManage.DataSavePer += SaveDataToTransSet;
                 SceneManage.sceneManage.DataLoadPer += LoadDataSet;
             }
-
         }
+
+
 
         private void OnDisable()
         {

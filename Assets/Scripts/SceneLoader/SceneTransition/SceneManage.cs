@@ -15,7 +15,7 @@ namespace Frog.SceneManagement
 
         private void Awake()
         {
-            if (sceneManage != null) { return; }
+     
             sceneManage = this;
         }
 
