@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using Frog.UI;
 using Frog.InputSystem;
 using Frog.SaveManagment;
-using Frog.SceneManagement;
+using Frog.ADs;
 using System;
 
 namespace Frog.ValMangment 
@@ -22,14 +21,7 @@ namespace Frog.ValMangment
 
         private void Start()
         {
-            if (AdManager.current!=null)
-            {
-                Debug.Log("added");
-                AdManager.current.RewardFlys += AddFlys;
-                AdManager.current.RewardWater += AddWater;
-                AdManager.current.RewardMoney += AddMoney;
-            }
-
+       
 
 
             if (UIStatUpdate.current != null)
@@ -51,9 +43,25 @@ namespace Frog.ValMangment
                 TriggerEatResource.current.IsInventoryZero += CheckIfValIsZero;
             }
 
-           
+
+            if (AdManager.current != null)
+            {
+      
+                AdManager.current.RewardWater += AddWater;
+                AdManager.current.RewardMoney += AddMoney;
+                AdManager.current.RewardFly += AddFlys;
+            }
+
+
+
 
         }
+
+        public void Test() 
+        {
+            Debug.Log("Test");
+        }
+
 
         public void UpdateCurrentFlyTappedRef()
         {
@@ -64,11 +72,14 @@ namespace Frog.ValMangment
         }
 
 
-      
+
         public void AddFlys(int add)
         {
             flys += add;
         }
+
+      
+
 
         public void AddWater(int add) 
         {
@@ -79,6 +90,8 @@ namespace Frog.ValMangment
         {
             Coins += add;
         }
+
+
 
 
         public void SubCoins(int sub) 
