@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4226517610646647895}
   - component: {fileID: 1406120923840978499}
   - component: {fileID: 5058132161086896379}
+  - component: {fileID: -5681271700301331272}
   m_Layer: 5
   m_Name: GridHatObj
   m_TagString: Untagged
@@ -155,6 +156,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-5681271700301331272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540149676186324522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709b82938f614d94391257c9ca5844af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HatSprite: {fileID: 8461107549210303396}
+  Price: {fileID: 244553686330501363}
+  HatName: {fileID: 1520846213313123472}
 --- !u!1 &5746677639942469728
 GameObject:
   m_ObjectHideFlags: 0

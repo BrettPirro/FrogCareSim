@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class HatObj : ScriptableObject
 {
-    string HatName;
-    Sprite sprite;
-    int Price;
+    public string HatName;
+    public Sprite sprite;
+    public int Price;
 
 
 
