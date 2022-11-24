@@ -55,6 +55,8 @@ namespace Frog.ValMangment
                     thirst = thirst + (float)(span* .7);
                 }
 
+
+            
             
 
             
@@ -63,7 +65,10 @@ namespace Frog.ValMangment
 
         }
 
-        
+        private bool CheckIfAnyValueIsZero() 
+        {
+            return Happiness < 100 || Hungry < 100 || thirst < 100;
+        }
 
 
 
